@@ -1,1 +1,1 @@
-//test git configuration
+//test git configuration test
