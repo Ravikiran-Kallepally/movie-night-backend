@@ -1,6 +1,6 @@
 // /backend/src/controllers/userController.js
 const bcrypt = require('bcryptjs');
-const User = require('../controllers/userController.js');
+const User = require('../models/userModel');
 
 // Register a new user
 async function registerUser(req, res) {
