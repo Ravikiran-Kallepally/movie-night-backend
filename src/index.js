@@ -1,4 +1,6 @@
 // /backend/index.js
+require('dotenv').config();
+
 const express = require('express');
 const userRoutes = require('../src/routes/user');
 const bodyParser = require('body-parser');
