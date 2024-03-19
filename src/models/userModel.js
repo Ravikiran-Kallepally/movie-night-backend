@@ -15,6 +15,23 @@ class User {
       });
     });
   }
+
+  static findOne(email) {
+    return new Promise((resolve, reject) => {
+      const query = 'SELECT * FROM Users WHERE email = ?';
+      pool.query(query, [email], (error, results) => {
+        if (error) {
+          reject(error);
+        } else {
+          if (results.length > 0) {
+            resolve(results[0]); // Return the first user found
+          } else {
+            resolve(null); // No user found
+          }
+        }
+      });
+    });
+  }
 }
 
 module.exports = User;
