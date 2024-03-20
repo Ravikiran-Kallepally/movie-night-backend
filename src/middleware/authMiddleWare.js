@@ -2,6 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 function authenticateToken(req, res, next) {
+  console.log("authenticate token file in authMiddleWare.js",req)
   const token = req.headers['authorization'];
   if (!token) return res.sendStatus(401);
 

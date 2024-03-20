@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const User = require('../models/User'); // Assuming you have a User model
+const User = require('../models/userModel'); // Assuming you have a User model
 
 async function loginUser(req, res) {
   try {
     const { email, password } = req.body;
+    console.log("req.body in authController.js",req.body)
     const user = await User.findOne({ email });
 
     // Check if user exists
