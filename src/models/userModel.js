@@ -20,7 +20,7 @@ class User {
   static findOne(email) {
     return new Promise((resolve, reject) => {
       const query = 'SELECT * FROM Users WHERE email = ?';
-      pool.query(query, [email], (error, results) => {
+      pool.query(query, email, (error, results) => {
         if (error) {
           reject(error);
         } else {

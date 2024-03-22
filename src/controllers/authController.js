@@ -5,16 +5,17 @@ const User = require('../models/userModel'); // Assuming you have a User model
 async function loginUser(req, res) {
   try {
     const { email, password } = req.body;
-    console.log("req.body in authController.js",req.body)
+    //console.log("req.body in authController AUTH CONTROLLER.js",req.body)
     const user = await User.findOne({ email });
 
     // Check if user exists
     if (!user) {
-      return res.status(400).json({ message: 'Invalid email or password' });
+      return res.status(400).json({ message: ' user does not exist Invalid email or password' });
     }
 
     // Check password
     const validPassword = await bcrypt.compare(password, user.password);
+    console.log("Passwords to compare",password,+":" + user.password)
     if (!validPassword) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
